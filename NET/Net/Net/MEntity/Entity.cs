@@ -6,7 +6,7 @@ using Net.Tools;
 
 
 //实体对象基类
-namespace Net.Entity
+namespace Net.MEntity
 {
     public class Entity
     {
@@ -16,6 +16,13 @@ namespace Net.Entity
             get { return mId; }
             set { mId = value; }
         }
+        protected static string sqlTableName;
+        public string SqlTableName
+        {
+            get { return sqlTableName; }
+            set { sqlTableName = value; }
+        }
+
         protected Dictionary<string, object> mAttrs;
 
         public T GetAttr<T>(string key)

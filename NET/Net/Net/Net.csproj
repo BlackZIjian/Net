@@ -77,6 +77,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="MysqlOp">
       <HintPath>dll\MysqlOp.dll</HintPath>
     </Reference>
@@ -242,8 +243,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Entity\Entity.cs" />
-    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="DAO\EntityManager.cs" />
+    <Compile Include="DAO\UserManager.cs" />
+    <Compile Include="MEntity\Entity.cs" />
+    <Compile Include="MEntity\UserEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
