@@ -6,9 +6,8 @@
             </el-breadcrumb>
         </div>
         <div >
-            <h3>Add Team</h3>
-
-                <input placeholder="teamName" class="h1Input" type="text" v-model="newGroupName" @keyup.13="AddGroupKeyPress($event)">
+            <a style="font-size:20px;font-weight:light;">加入团队</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input placeholder="团队名称" class="h1Input" type="text" v-model="newGroupName" @keyup.13="AddGroupKeyPress($event)">
 
         </div>
 
@@ -253,10 +252,15 @@
         flex-wrap: wrap;
     }
     .h1Input{
-        font-size:32px;
-        padding-bottom: 10px;
+        vertical-align: middle;
+        text-align: left;
+        height: 16px;
+        width: 200px;
+        margin-top:10px;
+        font-size:16px;
+        padding-top: 4px;
+        padding-bottom: 4px;
         margin-bottom: 15px;
-        width: 80%;
     }
     .addMember {
         margin: 24px 0 16px;

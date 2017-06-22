@@ -11,7 +11,7 @@
                 <el-card>
                     <h1 style="color: #444444;">{{group.groupName}}</h1><br/>
                     <p style="color:#555555;">&nbsp;<b>队长</b>&nbsp;&nbsp;&nbsp;{{group.ownerName}}</p><br/>
-                    <el-collapse v-model="activeNames" @change="handleChange">
+                    <el-collapse v-model="activeNames" :change="test()">
                         <el-collapse-item title="成员" name="1">
                             <div  v-for="member in group.members">{{member.userName}}</div>
                         </el-collapse-item>
@@ -33,10 +33,13 @@
                 user:"",
                 groups:[],
                 newGroupName:"",
-                newMemberName:""
+                newMemberName:"",
+                loadData: 0
             }
         },
         methods:{
+          test: function() {
+          },
           JoinTeam:function (groupId) {
               const  scope = this;
               $.ajax({
@@ -51,24 +54,24 @@
                           .then(function (response) {
                               let groups = response.data;
                               scope.groups = groups;
-                              for(let i =0;i<groups.length;i++) {
-                                  let group = groups[i];
-                                  let index = i;
-                                  axios.get(path + '/musers/GetUser?userId='+group.owner)
-                                      .then(function (response) {
-                                          scope.$set(scope.groups[index],"ownerName",response.data.user.userName);
-                                      })
-                                      .catch(function (error) {
-                                          console.log(error);
-                                      });
-                                  axios.get(path + '/musers/GetUsers?groupId='+group.groupId)
-                                      .then(function (response) {
-                                          scope.$set(scope.groups[index],"members",response.data);
-                                      })
-                                      .catch(function (error) {
-                                          console.log(error);
-                                      });
-                              }
+                              // for(let i =0;i<groups.length;i++) {
+                              //     let group = groups[i];
+                              //     let index = i;
+                              //     axios.get(path + '/musers/GetUser?userId='+group.owner)
+                              //         .then(function (response) {
+                              //             scope.$set(scope.groups[index],"ownerName",response.data.user.userName);
+                              //         })
+                              //         .catch(function (error) {
+                              //             console.log(error);
+                              //         });
+                              //     axios.get(path + '/musers/GetUsers?groupId='+group.groupId)
+                              //         .then(function (response) {
+                              //             scope.$set(scope.groups[index],"members",response.data);
+                              //         })
+                              //         .catch(function (error) {
+                              //             console.log(error);
+                              //         });
+                              // }
                           })
                           .catch(function (error) {
                               console.log(error);
