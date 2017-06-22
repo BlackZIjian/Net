@@ -27,22 +27,27 @@
                     {
                         icon: 'el-icon-setting',
                         index: 'readme',
-                        title: 'My teams'
+                        title: '我的团队'
                     },
                     {
                         icon: 'el-icon-menu',
-                        index: 'basetable',
+                        index: 'AllTeam',
                         title: '团队广场',
                     },
                     {
                         icon: 'el-icon-date',
-                        index: 'markdown',
+                        index: 'Geeks',
                         title: '程序员广场',
                     },
                     {
                         icon: 'el-icon-star-on',
                         index: 'vuetable',
                         title: '后台统计'
+                    },
+                    {
+                        icon: 'el-icon-star-on',
+                        index: 'basecharts',
+                        title: '信息统计'
                     }
                 ]
             }

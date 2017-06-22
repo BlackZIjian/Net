@@ -1,16 +1,17 @@
 <template>
+
     <div>
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-date"></i> 图表</el-breadcrumb-item>
-                <el-breadcrumb-item>基础图表</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-date"></i> 信息统计</el-breadcrumb-item>
+                <el-breadcrumb-item>信息统计</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="plugins-tips">
-            vue-schart：vue.js封装sChart.js的图表组件。
-            访问地址：<a href="https://github.com/lin-xin/vue-schart" target="_blank">vue-schart</a>
+            程序员统计
         </div>
-        <div class="content-title">柱状图</div>
+        <div class="content-title">程序员</div>
+        <canvas id="canvas" width="500" height="400"></canvas>
         <schart canvasId="bar" width="500" height="400" :data="data1" type="bar" :options="options1"></schart>
         <div class="content-title">折线图</div>
         <schart canvasId="line" width="500" height="400" :data="data1" type="line" :options="options1"></schart>
@@ -26,6 +27,23 @@
     export default {
         components: {
             Schart
+        },
+        created:function () {
+            var scope = this;
+            axios.get(path + "/Record/GetUsersByGroupNumber?userNum=" + 6)
+                .then(function (response) {
+                    var users = response.data;
+                    for(var i=0;i<users.length;i++) {
+                        scope.data1.push({
+                            "name":users[i].user.userName,
+                            "value":users[i].groupNum
+                        })
+                    }
+                    new sChart("canvas", "bar", scope.data1, scope.options1);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         },
         data: () => ({
             data1:[
@@ -44,7 +62,7 @@
                 {name:'羽绒服',value:2314}
             ],
             options1: {
-                title: '某商店近年营业总额',
+                title: '程序员加入团队数',
                 bgColor: '#829dda',
                 titleColor: '#ffffff',
                 fillColor: '#72f6ff',
@@ -70,5 +88,5 @@
         font-size: 22px;
         color: #1f2f3d;
     }
-    
+
 </style>

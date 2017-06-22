@@ -18,8 +18,8 @@ export default new Router({
                     component: resolve => require(['../components/page/Readme.vue'], resolve)
                 },
                 {
-                    path: '/basetable',
-                    component: resolve => require(['../components/page/BaseTable.vue'], resolve)
+                    path: '/AllTeam',
+                    component: resolve => require(['../components/page/AllTeam.vue'], resolve)
                 },
                 {
                     path: '/vuetable',
@@ -34,8 +34,8 @@ export default new Router({
                     component: resolve => require(['../components/page/VueEditor.vue'], resolve)    // Vue-Quill-Editor组件
                 },
                 {
-                    path: '/markdown',
-                    component: resolve => require(['../components/page/Markdown.vue'], resolve)     // Vue-Quill-Editor组件
+                    path: '/Geeks',
+                    component: resolve => require(['../components/page/Geeks.vue'], resolve)     // Vue-Quill-Editor组件
                 },
                 {
                     path: '/upload',
